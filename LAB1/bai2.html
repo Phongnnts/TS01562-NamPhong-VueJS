@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Bootstrap 5 - Bài 2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Icon thay cho Glyphicons (Bootstrap 5 không còn Glyphicons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="img/logo.png" alt="Logo" style="height: 40px" />
+          <span class="fw-semibold">Energy Pilates</span>
+        </a>
+
+        <!-- Button collapse -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <!-- Menu trái -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-list"></i> Bài viết</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-film"></i> Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-info-circle"></i> Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-calendar-event"></i> Sự kiện</a
+              >
+            </li>
+
+            <!-- Dropdown tài khoản -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person"></i> Tài khoản
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Đăng nhập</a></li>
+                <li><a class="dropdown-item" href="#">Quên mật khẩu</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Đăng ký thành viên</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Menu phải -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tiếng Việt</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Tiếng Anh</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <div class="alert alert-info mb-0">
+        <b>Bài 2:</b> Hoàn thành navbar có logo + icon + dropdown + responsive.
+      </div>
+    </div>
+  </body>
+</html>

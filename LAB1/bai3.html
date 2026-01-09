@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Bootstrap 5 - Bài 3 (Tổng hợp)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Icon thay cho Glyphicons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body class="bg-light">
+    <!-- Navbar (tái sử dụng từ Bài 2) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="img/logo.png" alt="Logo" style="height: 40px" />
+          <span class="fw-semibold">Energy Pilates</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-list"></i> Bài viết</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="bi bi-film"></i> Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-info-circle"></i> Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-calendar-event"></i> Sự kiện</a
+              >
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-person"></i> Tài khoản
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Đăng nhập</a></li>
+                <li><a class="dropdown-item" href="#">Quên mật khẩu</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Đăng ký thành viên</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tiếng Việt</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Tiếng Anh</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main layout -->
+    <div class="container py-4">
+      <div class="row g-4">
+        <!-- ASIDE LEFT -->
+        <aside class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-white">
+              <h5 class="mb-0 text-info">Về tôi</h5>
+            </div>
+            <div class="card-body">
+              <img
+                src="img/avatar.png"
+                class="img-fluid rounded mb-3"
+                alt="Avatar"
+              />
+              <p class="mb-0">
+                Giới thiệu bản thân<br />
+                <small class="text-muted">
+                  (Bạn thay nội dung theo yêu cầu bài)
+                </small>
+              </p>
+            </div>
+          </div>
+
+          <div class="card shadow-sm mt-4">
+            <div class="card-header bg-white">
+              <h6 class="mb-0 text-info">Chuyên mục</h6>
+            </div>
+            <div class="list-group list-group-flush">
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >
+                Chế độ tập <span class="badge bg-primary rounded-pill">12</span>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >
+                Chế độ dinh dưỡng
+                <span class="badge bg-primary rounded-pill">15</span>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >
+                Cẩm nang cuộc sống
+                <span class="badge bg-primary rounded-pill">99</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT (BLOG) -->
+        <main class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-header bg-white">
+              <h5 class="mb-0 text-info">Blog của tôi</h5>
+            </div>
+
+            <img src="img/post1.jpg" class="card-img-top" alt="Post" />
+
+            <div class="card-body">
+              <h6 class="card-title fw-semibold">
+                Phương pháp tập Pilates giúp phục hồi chấn thương cột sống
+              </h6>
+              <p class="card-text">
+                Nội dung mô tả ngắn… (bạn thay theo đề / tài nguyên).
+              </p>
+              <a href="#" class="btn btn-info text-white">Xem thêm</a>
+            </div>
+          </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR (LIST) -->
+        <aside class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-white">
+              <h6 class="mb-0">Bài nổi bật</h6>
+            </div>
+            <div class="list-group list-group-flush">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex gap-2">
+                  <img
+                    src="img/post2.jpg"
+                    alt=""
+                    style="width: 56px; height: 56px; object-fit: cover"
+                    class="rounded"
+                  />
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold">Biết ăn dỗi, đời sẽ…</div>
+                    <small class="text-muted"
+                      ><i class="bi bi-eye"></i> 30</small
+                    >
+                  </div>
+                </div>
+              </a>
+
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex gap-2">
+                  <img
+                    src="img/post3.jpg"
+                    alt=""
+                    style="width: 56px; height: 56px; object-fit: cover"
+                    class="rounded"
+                  />
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold">9 tác dụng tuyệt vời…</div>
+                    <small class="text-muted"
+                      ><i class="bi bi-eye"></i> 28</small
+                    >
+                  </div>
+                </div>
+              </a>
+
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex gap-2">
+                  <img
+                    src="img/post1.jpg"
+                    alt=""
+                    style="width: 56px; height: 56px; object-fit: cover"
+                    class="rounded"
+                  />
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold">10 công dụng bất ngờ…</div>
+                    <small class="text-muted"
+                      ><i class="bi bi-eye"></i> 15</small
+                    >
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+      <div class="container">
+        <small>©Copyright by FPT Polytechnic</small>
+      </div>
+    </footer>
+  </body>
+</html>
