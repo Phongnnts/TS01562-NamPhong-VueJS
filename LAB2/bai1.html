@@ -2,10 +2,6 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Lab 2 - Bài 1</title>
-
-    <!-- Bootstrap 5 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -18,22 +14,27 @@
       crossorigin="anonymous"
     />
 
+    <style>
+      .thead-yellow th {
+        background-color: #f1c40f; /* vàng đậm */
+        color: #000; /* chữ đen cho dễ đọc */
+      }
     </style>
   </head>
   <body>
-    <div class="container mt-4">
+    <div class="container mt-3">
       <!-- TIÊU ĐỀ -->
       <h4 class="text-danger text-center fw-bold mb-3">
         Bảng Thành Phần Dinh Dưỡng
       </h4>
       <!-- BẢNG -->
       <table class="table table-bordered align-middle">
-        <thead class="table-warning text-center">
-          <tr>
+        <thead class="thead-yellow text-center">
+          <tr style="background-color: #e6c74f">
             <th rowspan="2">Thành Phần</th>
             <th colspan="2">Giá Trị</th>
           </tr>
-          <tr>
+          <tr style="background-color: #f1c40f">
             <th>Khối Lượng</th>
             <th>% DV*</th>
           </tr>
