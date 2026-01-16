@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Bootstrap 5 - LAB 3 - Bài 2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2">
+          <img src="img/tim-mach.jpg" height="40" />
+          <strong>Energy Pilates</strong>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link"><i class="bi bi-list"></i> Bài viết</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="bi bi-film"></i> Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><i class="bi bi-info-circle"></i> Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><i class="bi bi-calendar-event"></i> Sự kiện</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="bi bi-person"></i> Tài khoản
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Đăng nhập</a></li>
+                <li><a class="dropdown-item">Quên mật khẩu</a></li>
+                <li><a class="dropdown-item">Đăng ký</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link">Tiếng Việt</a></li>
+            <li class="nav-item"><a class="nav-link">English</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= BANNER ================= -->
+    <img src="img/banner.jpg" class="w-100" />
+
+    <!-- ================= CONTENT ================= -->
+    <div class="container my-4">
+      <div class="row g-4">
+        <!-- ===== LEFT ===== -->
+        <aside class="col-lg-3">
+          <h5 class="text-info mb-3">Về tôi</h5>
+
+          <div class="card text-center mb-3">
+            <div class="card-body">
+              <img
+                src="img/avatar.png"
+                class="rounded-circle mb-3"
+                width="120"
+              />
+              <p class="fw-semibold mb-1">Giới thiệu bản thân</p>
+              <small class="text-muted">Chào mừng bạn đến với blog</small>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-info fw-semibold">Đọc nhiều</span>
+            <span class="text-info fw-semibold">Xem nhiều</span>
+          </div>
+
+          <div class="card p-2">
+            <div class="d-flex gap-2 mb-2">
+              <img src="img/post1.jpg" width="60" class="rounded" />
+              <div>
+                <small class="fw-semibold">Biết ăn dỗi, đời sẽ…</small><br />
+                <small class="text-muted"><i class="bi bi-eye"></i> 30</small>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2 mb-2">
+              <img src="img/post2.jpg" width="60" class="rounded" />
+              <div>
+                <small class="fw-semibold">10 công dụng bất ngờ…</small><br />
+                <small class="text-muted"><i class="bi bi-eye"></i> 28</small>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <img src="img/post3.jpg" width="60" class="rounded" />
+              <div>
+                <small class="fw-semibold">Lợi ích ăn rau</small><br />
+                <small class="text-muted"><i class="bi bi-eye"></i> 15</small>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- ===== CENTER BLOG ===== -->
+        <main class="col-lg-6">
+          <h5 class="text-info mb-3">Blog của tôi</h5>
+
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img
+                  src="img/post1.jpg"
+                  class="img-fluid h-100"
+                  style="object-fit: cover"
+                />
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h6 class="fw-semibold">
+                    Phương pháp tập Pilates giúp phục hồi cột sống
+                  </h6>
+                  <p class="small text-muted">
+                    Pilates giúp duy trì vóc dáng và phục hồi chấn thương hiệu
+                    quả.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-info text-white px-4">Xem thêm</button>
+          </div>
+        </main>
+
+        <!-- ===== RIGHT ===== -->
+        <aside class="col-lg-3">
+          <h5 class="text-info mb-3">Bài nổi bật</h5>
+          <ul class="list-group">
+            <li class="list-group-item d-flex gap-2">
+              <img src="img/post1.jpg" width="80" class="rounded" />
+              <div>
+                <small class="fw-semibold">Biết ăn dỗi…</small><br />
+                <small class="text-muted"><i class="bi bi-eye"></i> 30</small>
+              </div>
+            </li>
+            <li class="list-group-item d-flex gap-2">
+              <img src="img/post2.jpg" width="80" class="rounded" />
+              <div>
+                <small class="fw-semibold">10 công dụng…</small><br />
+                <small class="text-muted"><i class="bi bi-eye"></i> 28</small>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- ===== VIDEO ===== -->
+      <h5 class="text-info text-center mt-5">VIDEO - ĐỪNG BỎ LỠ</h5>
+
+      <div class="row g-3 mt-2">
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/video1.jpg" class="card-img-top" />
+            <div class="card-body">
+              <small class="fw-semibold">Đường đến thành công</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/video2.jpg" class="card-img-top" />
+            <div class="card-body">
+              <small class="fw-semibold">Những ngày cuối năm</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/video3.jpg" class="card-img-top" />
+            <div class="card-body">
+              <small class="fw-semibold">Ba người thầy</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card">
+            <img src="img/video3.jpg" class="card-img-top" />
+            <div class="card-body">
+              <small class="fw-semibold">Giá trị cuộc sống</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-3">
+        <button class="btn btn-info text-white px-4">Xem thêm</button>
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <small>27 - TS01562</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
