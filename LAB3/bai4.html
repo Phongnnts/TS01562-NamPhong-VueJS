@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>LAB 4 - Chi tiết bài viết</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2">
+          <img src="img/logo.png" height="40" />
+          <strong>Energy Pilates</strong>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link"><i class="bi bi-list"></i> Bài viết</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"><i class="bi bi-film"></i> Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><i class="bi bi-info-circle"></i> Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                ><i class="bi bi-calendar-event"></i> Sự kiện</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="bi bi-person"></i> Tài khoản
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Đăng nhập</a></li>
+                <li><a class="dropdown-item">Quên mật khẩu</a></li>
+                <li><a class="dropdown-item">Đăng ký</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link">Tiếng Việt</a></li>
+            <li class="nav-item"><a class="nav-link">English</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= CONTENT ================= -->
+    <div class="container my-4">
+      <div class="row">
+        <!-- ===== LEFT: POST CONTENT ===== -->
+        <main class="col-lg-8">
+          <h3 class="text-info fw-semibold mb-3">
+            Phương pháp tập Pilates giúp phục hồi chấn thương cột sống
+          </h3>
+
+          <img src="img/post1.jpg" class="img-fluid rounded mb-3" />
+
+          <p>
+            Tập Pilates có thể vẫn còn khá xa lạ với người Việt, nhưng tại các
+            nước phương Tây đây chính là phương pháp tập thể dục giúp giữ vóc
+            dáng, tăng cường sự dẻo dai cho cơ thể.
+          </p>
+
+          <p>
+            Đặc biệt, các bài tập Pilates còn có khả năng làm giảm đau lưng, cải
+            thiện chức năng cột sống và phục hồi các chấn thương hiệu quả.
+          </p>
+
+          <h5 class="text-info mt-4">
+            Pilates giúp phục hồi chấn thương cột sống nhanh chóng
+          </h5>
+
+          <p>
+            Một trong những lợi ích nổi bật của Pilates đó là tăng cường sức
+            mạnh cho cơ lưng, cơ bụng và cải thiện tư thế.
+          </p>
+
+          <img src="img/post2.jpg" class="img-fluid rounded my-3" />
+
+          <h6 class="fw-semibold">Phương pháp tập Pilates Cat Cow</h6>
+
+          <ul>
+            <li>Giữ lưng thẳng và kiểm soát hơi thở.</li>
+            <li>Thực hiện chậm rãi, tập trung vào chuyển động.</li>
+            <li>Giúp kéo giãn cột sống và giảm áp lực.</li>
+            <li>Phù hợp với người đau lưng nhẹ đến trung bình.</li>
+          </ul>
+
+          <h6 class="fw-semibold mt-3">Lời kết</h6>
+          <p>
+            Pilates là phương pháp tập luyện an toàn và hiệu quả giúp phục hồi
+            chấn thương cột sống nếu được thực hiện đúng cách và kiên trì.
+          </p>
+        </main>
+
+        <!-- ===== RIGHT: COMMENTS ===== -->
+        <aside class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="fw-semibold mb-3">Bình luận và viết tại đây</h6>
+
+              <textarea
+                class="form-control mb-2"
+                rows="3"
+                placeholder="Nhập bình luận của bạn"
+              ></textarea>
+
+              <button class="btn btn-success w-100 mb-3">Gửi bình luận</button>
+
+              <h6 class="fw-semibold">Danh sách các bình luận:</h6>
+
+              <ul class="list-unstyled small">
+                <li>• <strong>Bình An:</strong> Bài viết rất hữu ích</li>
+                <li>
+                  • <strong>Anh Cường:</strong> Cảm ơn những chia sẻ bổ ích
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <small>>27 - TS01562c</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
