@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LAB 4 - Modal + Tabs</title>
+
+    <!-- Bootstrap CSS: tạo giao diện (modal, tab, form, button...) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap JS: BẮT BUỘC để modal + tabs hoạt động -->
+    <!-- Câu hay hỏi: "Tại sao modal/tab không chạy?" → quên file này -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <!-- container: khung nội dung -->
+    <!-- mt-4: margin-top → tạo khoảng cách phía trên -->
+    <div class="container mt-4">
+      <!-- mb-3: margin-bottom -->
+      <h4 class="mb-3">LAB 4 – Modal + Tabs</h4>
+
+      <!-- 
+        NÚT MỞ MODAL
+        - data-bs-toggle="modal": báo Bootstrap đây là modal
+        - data-bs-target="#accountModal": mở modal có id tương ứng
+        👉 Câu hay ra: "Thêm nút mở modal"
+      -->
+      <button
+        class="btn btn-success"
+        data-bs-toggle="modal"
+        data-bs-target="#accountModal"
+      >
+        Tài khoản
+      </button>
+    </div>
+
+    <!-- 
+      MODAL
+      - fade: hiệu ứng mờ
+      - id="accountModal": phải TRÙNG với data-bs-target
+      👉 Câu hay ra: đổi size modal → modal-sm / modal-lg
+    -->
+    <div class="modal fade" id="accountModal">
+      <!-- modal-dialog: khung modal -->
+      <div class="modal-dialog">
+        <!-- modal-content: nội dung modal -->
+        <div class="modal-content">
+          <!-- HEADER MODAL -->
+          <div class="modal-header">
+            <!-- modal-title: tiêu đề -->
+            <h5 class="modal-title">ĐĂNG NHẬP / ĐĂNG KÝ</h5>
+
+            <!-- 
+              btn-close + data-bs-dismiss="modal": nút đóng
+              👉 Câu hay ra: "Làm sao đóng modal?"
+            -->
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- BODY MODAL -->
+          <div class="modal-body">
+            <!-- 
+              TABS
+              nav + nav-tabs: tạo thanh tab
+              👉 Câu hay ra: đổi tab mặc định
+            -->
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <!-- 
+                  nav-link active: tab đang mở
+                  data-bs-toggle="tab": kích hoạt tab
+                  href="#loginTab": trỏ đến tab-pane có id tương ứng
+                -->
+                <a
+                  class="nav-link active"
+                  data-bs-toggle="tab"
+                  href="#loginTab"
+                >
+                  Đăng nhập
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#registerTab">
+                  Đăng ký
+                </a>
+              </li>
+            </ul>
+
+            <!-- 
+              tab-content: vùng chứa nội dung tab
+              mt-3: tạo khoảng cách phía trên
+            -->
+            <div class="tab-content mt-3">
+              <!-- TAB ĐĂNG NHẬP -->
+              <!-- show active: tab đang hiển thị -->
+              <div class="tab-pane fade show active" id="loginTab">
+                <!-- 
+                  was-validated: bật kiểm tra form Bootstrap
+                  👉 Câu hay ra: validation form
+                -->
+                <form class="was-validated">
+                  <div class="mb-2">
+                    <!-- 
+                      form-control: input chuẩn Bootstrap
+                      type="email" + required: kiểm tra email
+                    -->
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
+                    <!-- invalid-feedback: thông báo lỗi -->
+                    <div class="invalid-feedback">Email không hợp lệ</div>
+                  </div>
+
+                  <div class="mb-2">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Mật khẩu"
+                      required
+                    />
+                    <div class="invalid-feedback">Vui lòng nhập mật khẩu</div>
+                  </div>
+
+                  <!-- 
+                    btn btn-primary: nút Bootstrap
+                    👉 Câu hay ra: làm nút full width → thêm w-100
+                  -->
+                  <button class="btn btn-primary">Đăng nhập</button>
+                </form>
+              </div>
+
+              <!-- TAB ĐĂNG KÝ -->
+              <div class="tab-pane fade" id="registerTab">
+                <form class="was-validated">
+                  <div class="mb-2">
+                    <input
+                      class="form-control"
+                      placeholder="Họ và tên"
+                      required
+                    />
+                    <div class="invalid-feedback">Nhập họ tên</div>
+                  </div>
+
+                  <div class="mb-2">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
+                    <div class="invalid-feedback">Email không hợp lệ</div>
+                  </div>
+
+                  <div class="mb-2">
+                    <!-- minlength="6": điều kiện độ dài -->
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Mật khẩu"
+                      required
+                      minlength="6"
+                    />
+                    <div class="invalid-feedback">Ít nhất 6 ký tự</div>
+                  </div>
+
+                  <button class="btn btn-success">Đăng ký</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LAB 3 - Tabs + Form</title>
+
+    <!-- Bootstrap CSS: tạo giao diện (tabs, form, button, spacing) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap JS: BẮT BUỘC để Tabs hoạt động -->
+    <!-- Câu hay hỏi: "Tại sao bấm tab không đổi?" → quên file này -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <!-- 
+      container: khung nội dung
+      mt-4: margin-top → tạo khoảng cách phía trên
+      w-25: rộng 25% màn hình
+      👉 Câu hay ra: canh giữa form → thêm mx-auto
+    -->
+    <div class="container mt-4 w-25">
+      <!-- mb-3: margin-bottom -->
+      <h4 class="mb-3">LAB 3 – Form & Tabs</h4>
+
+      <!-- 
+        TABS
+        nav + nav-tabs: tạo thanh tab
+        👉 Câu hay ra: đổi tab mặc định
+      -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <!-- 
+            nav-link active: tab đang hiển thị
+            data-bs-toggle="tab": kích hoạt tab
+            href="#register": phải trùng id của tab-pane
+          -->
+          <a class="nav-link active" data-bs-toggle="tab" href="#register">
+            Đăng ký
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <!-- 
+            data-bs-toggle="tab": chuyển sang tab khác
+            👉 Câu hay ra: thêm / bớt tab
+          -->
+          <a class="nav-link" data-bs-toggle="tab" href="#login"> Đăng nhập </a>
+        </li>
+      </ul>
+
+      <!-- 
+        tab-content: vùng chứa nội dung tab
+        border: viền
+        p-3: padding bên trong
+        👉 Câu hay ra: thêm viền / khoảng cách
+      -->
+      <div class="tab-content border p-3">
+        <!-- TAB ĐĂNG KÝ -->
+        <!-- show active: tab mặc định -->
+        <div class="tab-pane fade show active" id="register">
+          <!-- 
+            was-validated: bật kiểm tra form
+            👉 Câu hay ra: validation form
+          -->
+          <form class="was-validated">
+            <!-- mb-2: giãn các input -->
+            <div class="mb-2">
+              <!-- 
+                form-control: input chuẩn Bootstrap
+                required: bắt buộc nhập
+              -->
+              <input class="form-control" placeholder="Họ và tên" required />
+              <!-- invalid-feedback: thông báo lỗi -->
+              <div class="invalid-feedback">Vui lòng nhập họ tên</div>
+            </div>
+
+            <div class="mb-2">
+              <!-- type="email": kiểm tra email -->
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <div class="invalid-feedback">Email không hợp lệ</div>
+            </div>
+
+            <div class="mb-2">
+              <!-- minlength="6": độ dài tối thiểu -->
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Mật khẩu"
+                required
+                minlength="6"
+              />
+              <div class="invalid-feedback">Ít nhất 6 ký tự</div>
+            </div>
+
+            <!-- 
+              btn btn-primary: nút Bootstrap
+              👉 Câu hay ra: làm nút full width → thêm w-100
+            -->
+            <button class="btn btn-primary">Đăng ký</button>
+          </form>
+        </div>
+
+        <!-- TAB ĐĂNG NHẬP -->
+        <div class="tab-pane fade" id="login">
+          <form class="was-validated">
+            <div class="mb-2">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <div class="invalid-feedback">Vui lòng nhập email</div>
+            </div>
+
+            <div class="mb-2">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Mật khẩu"
+                required
+              />
+              <div class="invalid-feedback">Vui lòng nhập mật khẩu</div>
+            </div>
+
+            <button class="btn btn-primary">Đăng nhập</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

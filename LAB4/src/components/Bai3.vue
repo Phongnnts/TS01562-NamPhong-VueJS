@@ -12,7 +12,7 @@
     />
 
     <!-- Nút cập nhật -->
-    <button class="btn btn-primary" :title="buttonTitle" @click="changeGreeting">
+    <button class="btn btn-success" :title="buttonTitle" @click="changeGreeting">
       {{ buttonText }}
     </button>
   </div>
