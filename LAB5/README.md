@@ -1,38 +1,36 @@
-# LAB5
+LAB5 - 27 - TS01562
 
-This template should help get you started developing with Vue 3 in Vite.
+Bài 1 : Làm quen cơ bản với sự kiện và binding động Tạo một nút bấm (button) và khi bấm vào nút, hiển thị một thông báo được cập nhật.
+Yêu cầu:
+-Tạo một biến message với giá trị mặc định.
+-Khi bấm nút, giá trị của message sẽ được thay đổi thành một thông điệp mới.
+![alt text](images/image.png)
 
-## Recommended IDE Setup
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Bài 2: Two-way Data Binding với v-model
+Tạo một input nhập vào giá trị bất kỳ và hiển thị giá trị của trường nhập liệu đó ngay bên dưới theo thời gian thực.
+Yêu cầu:
+-Sử dụng v-model để binding giá trị từ input đến biến userInput.
+-Hiển thị giá trị của biến userInput dưới thẻ <p>.
 
-## Recommended Browser Setup
+![alt text](images/image-1.png)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-## Customize configuration
+Bài 3 : Nhập và hiển thị thông tin cá nhân
+Tạo một form nhập vào các trường thông tin bao gồm: Họ và tên, Tuổi, Địa chỉ Email.
+Yêu cầu:
+-Sử dụng v-model để liên kết dữ liệu giữa các input fields và các biến reactive trong Vue.
+-Hiển thị trực tiếp những thay đổi khi người dùng nhập thông tin vào form.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+![alt text](images/image-2.png)
 
-## Project Setup
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Bài 4: Xây dựng ứng dụng tạo và hiển thị danh sách bài viết gồm các
+yêu cầu sau:
+-Tạo bài đăng blog mới (tiêu đề, tác giả, nội dung).
+-Hiển thị danh sách các bài viết đã đăng.
+-Cho phép thay đổi màu sắc, kiểu dáng của mỗi bài viết thông qua việc sử dụng class
+binding và inline style binding.
+![alt text](images/image-3.png)
+![alt text](images/image-4.png)
