@@ -1,8 +1,19 @@
 <template>
   <div>
-    <h3 class="mb-4">Viết bài mới</h3>
+    <h3 class="mb-4">Chỉnh sửa bài viết</h3>
 
-    <div class="card">
+    <div v-if="loading" class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div v-else-if="!post" class="alert alert-danger">
+      Bài viết không tồn tại
+      <router-link to="/posts" class="alert-link">Quay lại</router-link>
+    </div>
+
+    <div v-else class="card">
       <div class="card-body">
         <form @submit.prevent="handleSubmit">
           <div class="mb-3">
@@ -30,7 +41,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="image" class="form-label">URL hình ảnh (tùy chọn)</label>
+            <label for="image" class="form-label">URL hình ảnh</label>
             <input
               v-model="form.image"
               type="text"
@@ -46,9 +57,9 @@
 
           <div class="d-flex justify-content-between">
             <router-link to="/posts" class="btn btn-secondary">Hủy bỏ</router-link>
-            <button type="submit" class="btn btn-primary" :disabled="loading">
-              <span v-if="loading" class="spinner-border spinner-border-sm me-2"></span>
-              Đăng bài
+            <button type="submit" class="btn btn-primary" :disabled="saving">
+              <span v-if="saving" class="spinner-border spinner-border-sm me-2"></span>
+              Lưu thay đổi
             </button>
           </div>
         </form>
@@ -58,17 +69,18 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { createPost } from '../services/post'
+import { reactive, ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { getPostById, updatePost } from '../services/post'
 import { getCurrentUser } from '../services/auth'
 
+const route = useRoute()
 const router = useRouter()
-const user = getCurrentUser()
 
-if (!user) {
-  router.push('/login')
-}
+const post = ref(null)
+const loading = ref(true)
+const saving = ref(false)
+const error = ref('')
 
 const form = reactive({
   title: '',
@@ -76,8 +88,34 @@ const form = reactive({
   image: '',
 })
 
-const loading = ref(false)
-const error = ref('')
+onMounted(() => {
+  const user = getCurrentUser()
+  if (!user) {
+    router.push('/login')
+    return
+  }
+
+  const postId = parseInt(route.params.id)
+  const foundPost = getPostById(postId)
+
+  if (!foundPost) {
+    loading.value = false
+    return
+  }
+
+  // Check permission
+  if (user.id !== foundPost.authorId && user.role !== 'admin') {
+    router.push('/posts')
+    return
+  }
+
+  post.value = foundPost
+  form.title = foundPost.title
+  form.content = foundPost.content
+  form.image = foundPost.image || ''
+
+  loading.value = false
+})
 
 const handleSubmit = async () => {
   if (!form.title.trim() || !form.content.trim()) {
@@ -85,16 +123,16 @@ const handleSubmit = async () => {
     return
   }
 
-  loading.value = true
+  saving.value = true
   error.value = ''
 
   try {
-    await createPost(form)
-    router.push('/posts')
+    await updatePost(post.value.id, form)
+    router.push(`/post/${post.value.id}`)
   } catch (err) {
     error.value = err.message || 'Có lỗi xảy ra'
   } finally {
-    loading.value = false
+    saving.value = false
   }
 }
 </script>

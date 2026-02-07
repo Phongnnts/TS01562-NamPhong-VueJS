@@ -1,119 +1,167 @@
 <template>
-  <!-- ================= BANNER ================= -->
-  <img src="/images/banner.jpg" class="w-100" style="background-size: cover; height: 300px" />
-
-  <!-- ================= CONTENT ================= -->
-  <div class="container my-4">
-    <div class="row g-4">
-      <!-- ===== LEFT ===== -->
-      <aside class="col-lg-3">
-        <h5 class="text-info mb-3">Về tôi</h5>
-
-        <div class="card text-center mb-3">
-          <div class="card-body">
-            <img src="/images/avatar.png" class="rounded-circle mb-3" width="120" />
-            <p class="fw-semibold mb-1">Giới thiệu bản thân</p>
-            <small class="text-muted">Chào mừng bạn đến với blog</small>
+  <div class="home-page">
+    <!-- Hero Section -->
+    <div class="hero-section bg-primary text-white rounded-3 p-5 mb-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold mb-3">Chia sẻ kiến thức & Kết nối cộng đồng</h1>
+          <p class="lead mb-4 opacity-75">
+            BlogVue là nền tảng đơn giản để bạn chia sẻ kiến thức, kinh nghiệm và kết nối với những
+            người có cùng đam mê công nghệ.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <template v-if="!user">
+              <router-link to="/register" class="btn btn-light btn-lg px-4">
+                <i class="bi bi-rocket-takeoff me-2"></i>Bắt đầu ngay
+              </router-link>
+              <router-link to="/posts" class="btn btn-outline-light btn-lg px-4">
+                <i class="bi bi-compass me-2"></i>Khám phá
+              </router-link>
+            </template>
+            <template v-else>
+              <router-link to="/create" class="btn btn-light btn-lg px-4">
+                <i class="bi bi-pencil-square me-2"></i>Viết bài mới
+              </router-link>
+              <router-link to="/posts" class="btn btn-outline-light btn-lg px-4">
+                <i class="bi bi-newspaper me-2"></i>Xem bài viết
+              </router-link>
+            </template>
           </div>
         </div>
-
-        <div class="d-flex justify-content-between mb-2">
-          <span class="text-info fw-semibold">Đọc nhiều</span>
-          <span class="text-info fw-semibold">Xem nhiều</span>
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img
+            src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Blogging"
+            class="img-fluid rounded shadow-lg"
+          />
         </div>
-
-        <div class="card p-2">
-          <div v-for="p in popularPosts" :key="p.id" class="d-flex gap-2 mb-2">
-            <img :src="p.image" width="60" class="rounded" />
-            <div>
-              <small class="fw-semibold">{{ p.title }}</small
-              ><br />
-              <small class="text-muted"> <i class="bi bi-eye"></i> {{ p.views }} </small>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- ===== CENTER BLOG ===== -->
-      <main class="col-lg-6">
-        <h5 class="text-info mb-3">Blog của tôi</h5>
-
-        <div v-for="post in posts" :key="post.id" class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-5">
-              <img :src="post.image" class="img-fluid h-100" style="object-fit: cover" />
-            </div>
-            <div class="col-md-7">
-              ''
-              <div class="card-body">
-                <h6 class="fw-semibold">{{ post.title }}</h6>
-                <p class="small text-muted">{{ post.desc }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <router-link to="/posts" class="btn btn-info text-white px-4"> Xem thêm </router-link>
-        </div>
-      </main>
-
-      <!-- ===== RIGHT ===== -->
-      <aside class="col-lg-3">
-        <h5 class="text-info mb-3">Bài nổi bật</h5>
-        <ul class="list-group">
-          <li v-for="p in featuredPosts" :key="p.id" class="list-group-item d-flex gap-2">
-            <img :src="p.image" width="80" class="rounded" />
-            <div>
-              <small class="fw-semibold">{{ p.title }}</small
-              ><br />
-              <small class="text-muted"> <i class="bi bi-eye"></i> {{ p.views }} </small>
-            </div>
-          </li>
-        </ul>
-      </aside>
+      </div>
     </div>
 
-    <!-- ===== VIDEO ===== -->
-    <h5 class="text-info text-center mt-5">VIDEO - ĐỪNG BỎ LỠ</h5>
-
-    <div class="row row-cols-1 row-cols-md-4 g-3">
-      <div v-for="v in videos" :key="v.id" class="col">
-        <div class="card">
-          <img :src="v.image" class="img-fluid" />
+    <!-- Stats -->
+    <div class="row mb-5">
+      <div class="col-md-4 mb-3">
+        <div class="card text-center border-0 shadow-sm">
           <div class="card-body">
-            <small class="fw-semibold">{{ v.title }}</small>
+            <i class="bi bi-file-text display-4 text-primary mb-3"></i>
+            <h3 class="fw-bold">{{ stats.posts }}</h3>
+            <p class="text-muted mb-0">Bài viết</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-people display-4 text-success mb-3"></i>
+            <h3 class="fw-bold">{{ stats.users }}</h3>
+            <p class="text-muted mb-0">Thành viên</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-chat-dots display-4 text-info mb-3"></i>
+            <h3 class="fw-bold">{{ stats.comments }}</h3>
+            <p class="text-muted mb-0">Bình luận</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="text-center mt-3">
-      <button class="btn btn-info text-white px-4">Xem thêm</button>
+    <!-- Latest Posts -->
+    <div class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold mb-0">Bài viết mới nhất</h3>
+        <router-link to="/posts" class="btn btn-outline-primary">
+          Xem tất cả <i class="bi bi-arrow-right ms-2"></i>
+        </router-link>
+      </div>
+
+      <div v-if="posts.length > 0">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" v-for="post in posts.slice(0, 3)" :key="post.id">
+            <div class="card h-100 border-0 shadow-sm hover-shadow">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">{{ truncateText(post.title, 50) }}</h5>
+                <p class="card-text text-muted">{{ truncateText(post.content, 100) }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <small class="text-muted d-block">
+                      <i class="bi bi-person me-1"></i>{{ post.author }}
+                    </small>
+                    <small class="text-muted">
+                      <i class="bi bi-calendar me-1"></i>{{ formatDate(post.createdAt) }}
+                    </small>
+                  </div>
+                  <router-link :to="`/post/${post.id}`" class="btn btn-sm btn-outline-primary">
+                    Đọc
+                  </router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else class="text-center py-5">
+        <i class="bi bi-newspaper display-1 text-muted mb-3"></i>
+        <h5>Chưa có bài viết nào</h5>
+        <p class="text-muted mb-4">Hãy là người đầu tiên chia sẻ kiến thức!</p>
+        <router-link v-if="user" to="/create" class="btn btn-primary">
+          <i class="bi bi-plus-lg me-2"></i>Viết bài đầu tiên
+        </router-link>
+        <router-link v-else to="/register" class="btn btn-primary">
+          <i class="bi bi-person-plus me-2"></i>Đăng ký để viết bài
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-const posts = [
-  {
-    id: 1,
-    title: 'Phương pháp tập Pilates giúp phục hồi cột sống',
-    desc: 'Pilates giúp duy trì vóc dáng và phục hồi chấn thương hiệu quả.',
-    image: '/images/post1.jpg',
-  },
-]
+import { ref, onMounted } from 'vue'
+import { getAllPosts } from '../services/post'
+import { getCurrentUser } from '../services/auth'
 
-const popularPosts = [
-  { id: 1, title: 'Biết ăn dỗi, đời sẽ…', views: 30, image: '/images/post1.jpg' },
-  { id: 2, title: '10 công dụng bất ngờ…', views: 28, image: '/images/post2.jpg' },
-]
+const user = ref(null)
+const posts = ref([])
 
-const featuredPosts = popularPosts
+onMounted(() => {
+  user.value = getCurrentUser()
+  posts.value = getAllPosts()
+})
 
-const videos = [
-  { id: 1, title: 'Đường đến thành công', image: '/images/video1.jpg' },
-  { id: 2, title: 'Những ngày cuối năm', image: '/images/video2.jpg' },
-  { id: 3, title: 'Ba người thầy', image: '/images/video3.jpg' },
-]
+const stats = {
+  posts: JSON.parse(localStorage.getItem('posts') || '[]').length,
+  users: JSON.parse(localStorage.getItem('users') || '[]').length,
+  comments: JSON.parse(localStorage.getItem('comments') || '[]').length,
+}
+
+const truncateText = (text, length) => {
+  return text.length > length ? text.substring(0, length) + '...' : text
+}
+
+const formatDate = (dateString) => {
+  return new Date(dateString).toLocaleDateString('vi-VN')
+}
 </script>
+
+<style scoped>
+.hero-section {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+.card {
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+</style>
