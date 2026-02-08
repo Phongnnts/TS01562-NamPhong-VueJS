@@ -15,8 +15,11 @@ const routes = [
   { path: '/', name: 'Home', component: Home },
 
   { path: '/blog', name: 'BlogList', component: BlogList },
+
+  //Routes động , với tham số là :id
   { path: '/blog/:id', name: 'BlogPost', component: BlogPost },
 
+  //router long nhau
   {
     path: '/profile',
     name: 'UserProfile',
@@ -30,7 +33,7 @@ const routes = [
       },
       {
         path: 'settings',
-        name: 'UserProfileSettings',
+        name: 'UserProfileSettings', // dieu huong bang ten , khogn can knho url
         component: UserProfileSettings,
       },
     ],
@@ -38,6 +41,8 @@ const routes = [
 
   { path: '/login', name: 'Login', component: Login },
 
+
+  //router bảo vệ
   {
     path: '/dashboard',
     name: 'Dashboard',
